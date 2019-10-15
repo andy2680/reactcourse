@@ -1,0 +1,15 @@
+version: "3.7"
+networks:
+  default:
+    name: spicy-react
+services:
+  recipe-front-end:
+    image: course/spicy-react
+    build:
+      context: .
+    ports:
+      - "80:80"
+  recipe-backend:
+    image: edc4it/spice-server-node:3.9
+    init: true
+
