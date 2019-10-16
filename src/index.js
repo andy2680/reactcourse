@@ -4,6 +4,9 @@ import './index.scss';
 import App from './App';
 //import * as serviceWorker from './serviceWorker';
 import 'bulma/css/bulma.min.css';
+import '@fortawesome/fontawesome-free/js/fontawesome'
+import '@fortawesome/fontawesome-free/js/solid'
+import '@fortawesome/fontawesome-free/js/regular'
 
 ReactDOM.render(<App/>, document.getElementById('root'));
 

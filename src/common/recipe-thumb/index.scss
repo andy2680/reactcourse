@@ -1,0 +1,66 @@
+@import "../../style/theme.scss";
+
+a.thumb-link {
+  color: inherit;
+  text-decoration: inherit;
+
+  &:visited {
+    color: inherit;
+    text-decoration: inherit;
+  }
+}
+
+.recipe-thumb {
+  position: relative;
+  height: 250px;
+  width: 350px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1.5em calc(60% - 1.5em) 1fr 1.5em;
+  grid-template-areas: "picture date" "picture ." "title title" "info info";
+
+
+  border: 1px solid $primary-border-colour;
+  margin: 5px;
+  padding: 5px;
+
+  &.new:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-width: 16px 0 0 16px;
+    border-style: solid;
+    border-color: #e30809 hsla(0, 0, 100%, 0);
+  }
+
+  img.picture {
+    width: 100%;
+    height: 100%;
+    grid-area: picture;
+    object-fit: cover;
+
+  }
+
+  .date {
+    grid-area: date;
+    align-self: end;
+    text-align: right;
+  }
+
+  .recipe-title {
+    grid-area: title;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  .info {
+    grid-area: info;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &:hover {
+    border: 2px solid $primary-hl;
+  }
+}
