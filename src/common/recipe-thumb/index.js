@@ -5,16 +5,20 @@ import classNames from "classnames";
 import DateFormat from "../util/date-format";
 import Torques from "../torques";
 import IconFied from "../iconfied";
+import {Link, withRouter} from "react-router-dom";
 
-const RecipeThumb = ({recipe}) =>  {
+const RecipeThumb = (props) =>  {
             const today = new Date().getTime();
+            const recipe = props.recipe;
+
             const isRecent = today - new Date(recipe.datePublished).getTime() < 6 * 2592000000;
 
             const thumbClasses = classNames('recipe-thumb',{
                 'new': isRecent,
             });
 
-            return <div className={thumbClasses} key={recipe.id}>
+            return <Link className="thumb-link" to={`${props.match.url}/${recipe.id}`}>
+                <div className={thumbClasses} key={recipe.id}>
                 <img className="picture" src={`/images/${recipe.image}`} alt={recipe.title}/>
                 <DateFormat date={recipe.datePublished}/>
                 <div className="recipe-title">{recipe.title}</div>
@@ -25,7 +29,8 @@ const RecipeThumb = ({recipe}) =>  {
                         <span>{recipe.author}</span>
                     </IconFied>
                 </div>
-            </div>;
+            </div>
+            </Link>;
         }
 
 
@@ -42,4 +47,4 @@ RecipeThumb.propTypes = {
 };
 
 
-export default RecipeThumb;
+export default withRouter(RecipeThumb);

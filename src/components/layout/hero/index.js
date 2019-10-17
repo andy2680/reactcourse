@@ -2,7 +2,9 @@ import React from "react";
 import "./spicy-hero.scss";
 import SearchBox from "../../search";
 import PropTypes from "prop-types";
+import {withDebounce} from "../../../common/hoc/debounce";
 
+const DebouncedSearchBox =  withDebounce(400)(SearchBox);
 
 class SpicyHero extends React.Component {
 
@@ -20,7 +22,7 @@ class SpicyHero extends React.Component {
                             </h2>
                         </div>
                         <div className="level-right">
-                            <SearchBox onSearchChange={this.props.onSearchChange}/>
+                            <DebouncedSearchBox onSearchChange={this.props.onSearchChange}/>
                         </div>
                     </div>
                 </div>

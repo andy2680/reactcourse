@@ -1,0 +1,16 @@
+.add-recipe-form {
+  .textarea {
+    resize: none;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 50% 50%;
+    grid-columngap: 0.5em;
+  }
+
+  select {
+    display: block;
+  }
+}
