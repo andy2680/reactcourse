@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./index.scss"
 import {NavLink} from "react-router-dom";
+import classNames from "classnames";
 
 export class NavBar extends Component {
 
@@ -10,22 +11,22 @@ export class NavBar extends Component {
         this.setState(s => {
             return {isOpen: !s.isOpen};
         })
-    }
+    };
 
     closeMenu = (e) => {
         this.setState(s => {
             return {isOpen: false};
         })
-    }
+    };
 
-    const burgerBtnClass = classNames({
+    burgerBtnClass = classNames({
         'navbar-burger': true,
         'burger': true,
         'is-active': this.state.isOpen
 
     });
 
-    const navbarMenuClass = classNames('navbar-menu', {
+    navbarMenuClass = classNames('navbar-menu', {
         'is-active': this.state.isOpen
     });
 

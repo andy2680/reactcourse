@@ -9,19 +9,17 @@ class RecipesHome extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        //this.state = {};
     }
-
-    searchValueChange = (v) => this.setState({searchValue:v});
 
 
     render()  {
         return (
             <div>
-                <SpicyHero onSearchChange={this.searchValueChange}/>
+                <SpicyHero/>
                 <section className="section">
                     <div className="container">
-                        <Route path={`${this.props.match.url}`} exact strict={true} render={() => <RecipeList filter={this.state.searchValue}/>} />
+                        <Route path={`${this.props.match.url}`} exact strict={true} render={() => <RecipeList/>} />
                         <Route path={`${this.props.match.url}/:id`} component={RecipeDetails}/>
                     </div>
                 </section>

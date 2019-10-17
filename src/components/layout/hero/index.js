@@ -1,10 +1,6 @@
 import React from "react";
 import "./spicy-hero.scss";
 import SearchBox from "../../search";
-import PropTypes from "prop-types";
-import {withDebounce} from "../../../common/hoc/debounce";
-
-const DebouncedSearchBox =  withDebounce(400)(SearchBox);
 
 class SpicyHero extends React.Component {
 
@@ -22,17 +18,13 @@ class SpicyHero extends React.Component {
                             </h2>
                         </div>
                         <div className="level-right">
-                            <DebouncedSearchBox onSearchChange={this.props.onSearchChange}/>
+                            <SearchBox/>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     };
-};
-
-SpicyHero.propTypes = {
-    onSearchChange: PropTypes.func,
 };
 
 export default SpicyHero;
